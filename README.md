@@ -10,4 +10,4 @@ Reactor uses StringUtils from an older version of reactor and the spring support
 Exception in thread "main" org.springframework.beans.factory.BeanDefinitionStoreException: Unexpected exception parsing XML document from class path resource [sftp.xml]; nested exception is java.lang.NoClassDefFoundError: reactor/util/StringUtils
 ```
 
-[Fixed provided]([http://stackoverflow.com/questions/29934964/spring-integration-sftp-with-reactor)
+[Fixed provided](http://stackoverflow.com/questions/29934964/spring-integration-sftp-with-reactor)
