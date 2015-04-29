@@ -32,12 +32,14 @@ repositories {
 
 
 dependencies {
-	testCompile("org.springframework.boot:spring-boot-starter")
+	compile("org.springframework.boot:spring-boot-starter")
+	
 	compile("io.projectreactor:reactor-core:$reactorVersion")
 	compile "io.projectreactor.spring:reactor-spring-context:$reactorSpringVersion"
 
 	compile("org.springframework.integration:spring-integration-core") { exclude module: "reactor-core" }
 	compile("org.springframework.integration:spring-integration-sftp") { exclude module: "reactor-core" }
+	
 	testCompile("org.springframework.boot:spring-boot-starter-test")
 }
 
