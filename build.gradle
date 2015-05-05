@@ -1,8 +1,8 @@
 buildscript {
 	ext {
 		springBootVersion = '1.2.3.RELEASE'
-		reactorVersion = '2.0.0.M2'
-		reactorSpringVersion = '2.0.0.M2'
+		reactorVersion = '2.0.0.RELEASE'
+		reactorSpringVersion = '2.0.0.RELEASE'
 	}
 	repositories { mavenCentral() }
 	dependencies {
@@ -26,7 +26,9 @@ targetCompatibility = 1.7
 
 repositories {
 	mavenCentral()
+	jcenter()
 	maven { url 'http://maven.springframework.org/milestone/' }
+	maven { url 'http://repo.spring.io/libs-milestone' }
 	maven { url 'http://repo.spring.io/snapshot' }
 }
 
