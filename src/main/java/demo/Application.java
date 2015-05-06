@@ -12,6 +12,7 @@ import org.springframework.util.IdGenerator;
 
 import reactor.Environment;
 import reactor.bus.EventBus;
+import reactor.core.Dispatcher;
 import reactor.core.support.UUIDUtils;
 import reactor.spring.context.config.EnableReactor;
 
@@ -24,17 +25,22 @@ public class Application implements CommandLineRunner {
 		Environment.initializeIfEmpty().assignErrorJournal();
 	}
 
-	@Value("${reactor.thread.count:6}")
+	@Value("${reactor.thread.count}")
 	private int threadCount;
 
-	@Value("${reactor.backlog:256}")
+	@Value("${reactor.backlog}")
 	private int backlog;
 
 	@Bean
 	public EventBus eventBus() {
 		return EventBus.config().env(Environment.get())
-				.dispatcher(Environment.newDispatcher(backlog, threadCount))
+				.dispatcher(dispatcher())
 				.get();
+	}
+
+	@Bean
+	public Dispatcher dispatcher() {
+		return Environment.newDispatcher(backlog, threadCount);
 	}
 
 	@Bean
